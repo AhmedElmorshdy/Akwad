@@ -1,4 +1,4 @@
-package com.example.akwad.Home_frag.ModelView;
+package com.example.akwad.ModelView.Home_frag;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

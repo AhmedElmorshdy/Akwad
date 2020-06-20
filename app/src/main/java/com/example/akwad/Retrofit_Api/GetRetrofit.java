@@ -1,6 +1,6 @@
 package com.example.akwad.Retrofit_Api;
 
-import com.example.akwad.Home_frag.ModelView.Homefrag_Response;
+import com.example.akwad.ModelView.Home_frag.Homefrag_Response;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

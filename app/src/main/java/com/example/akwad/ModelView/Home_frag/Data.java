@@ -1,5 +1,10 @@
-package com.example.akwad.Home_frag.ModelView;
+package com.example.akwad.ModelView.Home_frag;
 
+import com.example.akwad.ModelView.Coupon;
+import com.example.akwad.ModelView.MarketingStore;
+import com.example.akwad.ModelView.MidBanner;
+import com.example.akwad.ModelView.ServicesStore;
+import com.example.akwad.ModelView.Slider;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -12,19 +17,19 @@ public class Data {
     private List<Slider> sliders = null;
     @SerializedName("biggest_coupon")
     @Expose
-    private List<Object> biggestCoupon = null;
+    private List<Coupon> biggestCoupon = null;
     @SerializedName("most_clicked")
     @Expose
-    private List<Object> mostClicked = null;
+    private List<Coupon> mostClicked = null;
     @SerializedName("mid_banner")
     @Expose
     private List<MidBanner> midBanner = null;
     @SerializedName("recent_coupons")
     @Expose
-    private List<Object> recentCoupons = null;
+    private List<Coupon> recentCoupons = null;
     @SerializedName("random_coupons")
     @Expose
-    private List<Object> randomCoupons = null;
+    private List<Coupon> randomCoupons = null;
     @SerializedName("marketing_stores")
     @Expose
     private List<MarketingStore> marketingStores = null;
@@ -43,19 +48,19 @@ public class Data {
         this.sliders = sliders;
     }
 
-    public List<Object> getBiggestCoupon() {
+    public List<Coupon> getBiggestCoupon() {
         return biggestCoupon;
     }
 
-    public void setBiggestCoupon(List<Object> biggestCoupon) {
+    public void setBiggestCoupon(List<Coupon> biggestCoupon) {
         this.biggestCoupon = biggestCoupon;
     }
 
-    public List<Object> getMostClicked() {
+    public List<Coupon> getMostClicked() {
         return mostClicked;
     }
 
-    public void setMostClicked(List<Object> mostClicked) {
+    public void setMostClicked(List<Coupon> mostClicked) {
         this.mostClicked = mostClicked;
     }
 
@@ -67,19 +72,19 @@ public class Data {
         this.midBanner = midBanner;
     }
 
-    public List<Object> getRecentCoupons() {
+    public List<Coupon> getRecentCoupons() {
         return recentCoupons;
     }
 
-    public void setRecentCoupons(List<Object> recentCoupons) {
+    public void setRecentCoupons(List<Coupon> recentCoupons) {
         this.recentCoupons = recentCoupons;
     }
 
-    public List<Object> getRandomCoupons() {
+    public List<Coupon> getRandomCoupons() {
         return randomCoupons;
     }
 
-    public void setRandomCoupons(List<Object> randomCoupons) {
+    public void setRandomCoupons(List<Coupon> randomCoupons) {
         this.randomCoupons = randomCoupons;
     }
 

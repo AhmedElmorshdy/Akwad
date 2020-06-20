@@ -1,58 +1,70 @@
-package com.example.akwad.Home_frag.Slider_recy;
+package com.example.akwad.Home_frag.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.akwad.Home_frag.ModelView.Slider;
+import com.example.akwad.ModelView.Coupon;
 import com.example.akwad.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.viewHolder> {
+public class MostClicked_Adapter extends RecyclerView.Adapter<MostClicked_Adapter.viewHolder> {
 
-    List<Slider>sliders;
+    List<Coupon>mostClicked;
     Context context;
 
-    public SliderAdapter(List<Slider> sliders, Context context) {
-        this.sliders = sliders;
+    public MostClicked_Adapter(List<Coupon> mostClicked, Context context) {
+        this.mostClicked = mostClicked;
         this.context = context;
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.slideres,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.mostclicked,parent,false);
         return new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        Slider current = sliders.get(position);
+
+        Coupon current = mostClicked.get(position);
+
         String image = current.getImage();
-        Picasso.with(context).load(image).into(holder.imageView);
+        Picasso.get().load(image).centerCrop().centerCrop().fit().into(holder.imageView);
+
+        holder.textView.setText(current.getStoreName());
+
 
     }
 
     @Override
     public int getItemCount() {
-        return sliders.size();
+        return mostClicked.size();
     }
 
     public static class viewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
+        TextView textView;
+
 
 
         public viewHolder(@NonNull View itemView) {
+
             super(itemView);
-            imageView = itemView.findViewById(R.id.image_sliders);
+
+
+            imageView = itemView.findViewById(R.id.biggest_couponImage);
+            textView = itemView.findViewById(R.id.biggest_couponName);
         }
     }
 }

@@ -1,9 +1,10 @@
-package com.example.akwad.Home_frag.ModelView;
+package com.example.akwad.ModelView;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ServicesStore {
+public class MarketingStore {
+
 
     @SerializedName("id")
     @Expose

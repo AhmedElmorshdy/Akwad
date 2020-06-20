@@ -1,7 +1,7 @@
 package com.example.akwad.Home_frag.Presenter;
 
 import com.example.akwad.Home_frag.UI.Home_View;
-import com.example.akwad.Home_frag.ModelView.Homefrag_Response;
+import com.example.akwad.ModelView.Home_frag.Homefrag_Response;
 import com.example.akwad.Retrofit_Api.GetRetrofit;
 import com.example.akwad.Retrofit_Api.RetrofitInstance;
 
@@ -17,16 +17,20 @@ public class PresenterHome_frag implements Home_Presenter {
         this.view1 = view1;
     }
 
+
     @Override
-    public void getSliders() {
+    public void getHome_frag_Data() {
+
         GetRetrofit list  = RetrofitInstance.getSliders().create(GetRetrofit.class);
-        Call<Homefrag_Response>call = list.getHome("en",1);
+        Call<Homefrag_Response>call = list.getHome("ar",1);
         call.enqueue(new Callback<Homefrag_Response>() {
             @Override
             public void onResponse(Call<Homefrag_Response> call, Response<Homefrag_Response> response) {
                 if (response.isSuccessful()){
                     if (response.body().getValue()){
                         view1.onResponse(response.body().getData().getSliders());
+                        view1.onResponse_BiggestCoupon(response.body().getData().getBiggestCoupon());
+                        view1.onResponse_MostClicked(response.body().getData().getMostClicked());
 
 
 
@@ -46,6 +50,7 @@ public class PresenterHome_frag implements Home_Presenter {
 
             }
         });
+
 
     }
 }

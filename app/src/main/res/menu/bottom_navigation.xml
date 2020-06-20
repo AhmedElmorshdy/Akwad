@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:icon="@drawable/ic_home_24"
+        android:title="الرئيسية"/>
+    <item android:id="@+id/shopping"
+        android:icon="@drawable/ic_shopping_24"
+        android:title="التسوق"/>
+    <item android:id="@+id/travel"
+        android:icon="@drawable/ic_travel_24"
+        android:title="لسفر"/>
+    <item android:id="@+id/services"
+        android:icon="@drawable/ic_services_24"
+        android:title="الخدمات"/>
+
+    <item android:id="@+id/more"
+        android:icon="@drawable/ic_more_24"
+        android:title="المزيد"/>
+
+
+</menu>

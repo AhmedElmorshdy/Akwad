@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-      android:layout_marginStart="20dp"
+    android:layout_marginStart="20dp"
 
     android:layout_height="190dp">
 
@@ -26,7 +26,7 @@
 
 
         <ImageView
-            android:id="@+id/biggest_couponImage"
+            android:id="@+id/service_storeImage"
             android:layout_width="100dp"
 
             android:layout_height="120dp"
@@ -34,11 +34,11 @@
 
 
         <TextView
-            android:id="@+id/biggest_couponName"
+            android:id="@+id/servicee_storeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="140dp"
             android:gravity="center"
 

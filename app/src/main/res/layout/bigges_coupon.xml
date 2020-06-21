@@ -40,8 +40,8 @@
                 android:gravity="center"
 
                 android:text="TextView"
-                android:textSize="19dp"
-                android:textStyle="bold" />
+                android:textSize="15dp"
+                android:textStyle="normal" />
 
 
         </LinearLayout>

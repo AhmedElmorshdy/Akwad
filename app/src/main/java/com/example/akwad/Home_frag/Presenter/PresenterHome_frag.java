@@ -31,6 +31,11 @@ public class PresenterHome_frag implements Home_Presenter {
                         view1.onResponse(response.body().getData().getSliders());
                         view1.onResponse_BiggestCoupon(response.body().getData().getBiggestCoupon());
                         view1.onResponse_MostClicked(response.body().getData().getMostClicked());
+                        view1.onResponse_MidBanners(response.body().getData().getMidBanner());
+                        view1.onResponse_recentCoupons(response.body().getData().getRecentCoupons());
+                        view1.onResponse_randomCoupon(response.body().getData().getRandomCoupons());
+                        view1.onResponse_marketingStors(response.body().getData().getMarketingStores());
+                        view1.onResponse_ServiceStores(response.body().getData().getServicesStores());
 
 
 

@@ -21,6 +21,7 @@ import com.example.akwad.Home_frag.Home.Adapters.Adapter.MostClicked_Adapter;
 import com.example.akwad.Home_frag.Home.Adapters.Adapter.RandomAdapter;
 import com.example.akwad.Home_frag.Home.Adapters.Adapter.RecentAdapter;
 import com.example.akwad.Home_frag.Home.Adapters.Adapter.ServiceAdapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.SliderAdapter;
 import com.example.akwad.Home_frag.Home.Adapters.Presenter.PresenterHome_frag;
 import com.example.akwad.ModelView.CetagoryModel.Store;
 import com.example.akwad.ModelView.Coupon;
@@ -28,7 +29,6 @@ import com.example.akwad.ModelView.MarketingStore;
 import com.example.akwad.ModelView.MidBanner;
 import com.example.akwad.ModelView.ServicesStore;
 import com.example.akwad.ModelView.Slider;
-import com.example.akwad.Home_frag.Home.Adapters.Adapter.SliderAdapter;
 import com.example.akwad.R;
 
 import java.util.ArrayList;
@@ -56,9 +56,9 @@ public class Home_frag extends Fragment implements Home_View {
      private ArrayList<MarketingStore>marketingStores;
      private ArrayList<ServicesStore>servicesStores;
      PresenterHome_frag presenterHome_frag;
-     View view;
-     String id ;
-     private ArrayList<Store>stores;
+    View view;
+    int id;
+    private ArrayList<Store> stores;
 
     @Nullable
     @Override
@@ -232,8 +232,7 @@ public class Home_frag extends Fragment implements Home_View {
             public void OnItemClick(int position) {
 
 
-                id =  marketingStores.get(position).getId().toString();
-                Toast.makeText(getContext(),id,Toast.LENGTH_LONG).show();
+                id = biggestCoupons.get(position).getStoreId();
                 Intent intent = new Intent(getContext(), Details_biggestCoupon.class);
                 intent.putExtra("id",id);
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.BiggestCoupon_Adapter;
 import com.example.akwad.ModelView.CetagoryModel.Store;
 import com.example.akwad.R;
 import com.squareup.picasso.Picasso;
@@ -20,6 +21,25 @@ public class CetagoryItemAdapter extends RecyclerView.Adapter<CetagoryItemAdapte
 
     List<Store>stores;
     Context context;
+
+
+    private OnItemClickListener mlistener;
+
+    public void setOnItemClickListener(BiggestCoupon_Adapter.OnItemClickListener id) {
+
+
+    }
+
+
+    public interface OnItemClickListener{
+
+        void OnItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+
+        mlistener = listener;
+    }
 
 
     public CetagoryItemAdapter(List<Store> stores, Context context) {
@@ -59,6 +79,8 @@ public class CetagoryItemAdapter extends RecyclerView.Adapter<CetagoryItemAdapte
 
             imageView = itemView.findViewById(R.id.cetagory_storeImage);
             textView = itemView.findViewById(R.id.cetagory_storeName);
+
+
         }
     }
 }

@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.akwad.Home_frag.UI.Home_frag;
+import com.example.akwad.Home_frag.Home.Adapters.UI.Home_frag;
 import com.example.akwad.More_frag.More_frag;
 import com.example.akwad.Cetagory.UI.Cetagory_frag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

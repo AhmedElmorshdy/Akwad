@@ -1,58 +1,63 @@
-package com.example.akwad.Home_frag.Adapters;
+package com.example.akwad.Home_frag.Home.Adapters.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.akwad.ModelView.Slider;
+import com.example.akwad.ModelView.Coupon;
 import com.example.akwad.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.viewHolder> {
+public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.viewHolder> {
 
-    List<Slider>sliders;
+    List<Coupon>randomcoupons;
     Context context;
 
-    public SliderAdapter(List<Slider> sliders, Context context) {
-        this.sliders = sliders;
+    public RandomAdapter(List<Coupon> randomcoupons, Context context) {
+        this.randomcoupons = randomcoupons;
         this.context = context;
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.slideres,parent,false);
-        return new viewHolder(view);
+
+        View view = LayoutInflater.from(context).inflate(R.layout.randomcoupon,parent,false);
+        return  new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        Slider current = sliders.get(position);
+
+        Coupon current = randomcoupons.get(position);
         String image = current.getImage();
         Picasso.get().load(image).centerCrop().fit().into(holder.imageView);
+        holder.textView.setText(current.getStoreName());
 
     }
 
     @Override
     public int getItemCount() {
-        return sliders.size();
+        return randomcoupons.size();
     }
 
-    public static class viewHolder extends RecyclerView.ViewHolder{
+    public static class viewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-
+        TextView textView;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.image_sliders);
+            imageView = itemView.findViewById(R.id.random_couponImage);
+            textView = itemView.findViewById(R.id.random_couponName);
         }
     }
 }

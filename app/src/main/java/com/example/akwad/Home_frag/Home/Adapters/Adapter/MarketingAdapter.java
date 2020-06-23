@@ -1,4 +1,4 @@
-package com.example.akwad.Home_frag.Adapters;
+package com.example.akwad.Home_frag.Home.Adapters.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,43 +10,43 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.akwad.ModelView.ServicesStore;
+import com.example.akwad.ModelView.MarketingStore;
 import com.example.akwad.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.viewHolder> {
+public class MarketingAdapter extends RecyclerView.Adapter<MarketingAdapter.viewHolder> {
 
-    List<ServicesStore>servicesStores;
+    List<MarketingStore>marketingStores;
     Context context;
 
-    public ServiceAdapter(List<ServicesStore> servicesStores, Context context) {
-        this.servicesStores = servicesStores;
+    public MarketingAdapter(List<MarketingStore> marketingStores, Context context) {
+        this.marketingStores = marketingStores;
         this.context = context;
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.services,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.marketingstore,parent,false);
         return new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        ServicesStore current = servicesStores.get(position);
+
+        MarketingStore current = marketingStores.get(position);
         String image = current.getImage();
         Picasso.get().load(image).centerCrop().fit().into(holder.imageView);
 
         holder.textView.setText(current.getName());
 
-
     }
 
     @Override
     public int getItemCount() {
-        return servicesStores.size();
+        return marketingStores.size();
     }
 
     public static class viewHolder extends RecyclerView.ViewHolder{
@@ -55,9 +55,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.viewHold
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-
-            imageView = itemView.findViewById(R.id.service_storeImage);
-            textView = itemView.findViewById(R.id.servicee_storeName);
+            imageView = itemView.findViewById(R.id.marketing_storeImage);
+            textView = itemView.findViewById(R.id.marketing_storeName);
         }
     }
 }

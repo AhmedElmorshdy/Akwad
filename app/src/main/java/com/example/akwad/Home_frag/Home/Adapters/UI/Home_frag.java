@@ -1,5 +1,6 @@
-package com.example.akwad.Home_frag.UI;
+package com.example.akwad.Home_frag.Home.Adapters.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,20 +13,21 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.akwad.Home_frag.Adapters.BannerAdapter;
-import com.example.akwad.Home_frag.Adapters.BiggestCoupon_Adapter;
-import com.example.akwad.Home_frag.Adapters.MarketingAdapter;
-import com.example.akwad.Home_frag.Adapters.MostClicked_Adapter;
-import com.example.akwad.Home_frag.Adapters.RandomAdapter;
-import com.example.akwad.Home_frag.Adapters.RecentAdapter;
-import com.example.akwad.Home_frag.Adapters.ServiceAdapter;
-import com.example.akwad.Home_frag.Presenter.PresenterHome_frag;
+import com.example.akwad.Home_frag.Details.UI.Details_biggestCoupon;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.BannerAdapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.BiggestCoupon_Adapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.MarketingAdapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.MostClicked_Adapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.RandomAdapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.RecentAdapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.ServiceAdapter;
+import com.example.akwad.Home_frag.Home.Adapters.Presenter.PresenterHome_frag;
 import com.example.akwad.ModelView.Coupon;
 import com.example.akwad.ModelView.MarketingStore;
 import com.example.akwad.ModelView.MidBanner;
 import com.example.akwad.ModelView.ServicesStore;
 import com.example.akwad.ModelView.Slider;
-import com.example.akwad.Home_frag.Adapters.SliderAdapter;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.SliderAdapter;
 import com.example.akwad.R;
 
 import java.util.ArrayList;
@@ -54,7 +56,7 @@ public class Home_frag extends Fragment implements Home_View {
      private ArrayList<ServicesStore>servicesStores;
      PresenterHome_frag presenterHome_frag;
      View view;
-
+     String id ;
 
     @Nullable
     @Override
@@ -145,12 +147,15 @@ public class Home_frag extends Fragment implements Home_View {
     }
 
     @Override
-    public void onResponse_BiggestCoupon(List<Coupon> biggestCoupons) {
+    public void onResponse_BiggestCoupon(final List<Coupon> biggestCoupons) {
        this.biggestCoupons = new ArrayList<>();
        adapter1 = new BiggestCoupon_Adapter(biggestCoupons,getContext());
        recyclerView1.setAdapter(adapter1);
        this.biggestCoupons.addAll(biggestCoupons);
        adapter1.notifyDataSetChanged();
+
+       getDetails();
+
     }
 
     @Override
@@ -213,6 +218,30 @@ public class Home_frag extends Fragment implements Home_View {
         recyclerView7.setAdapter(adapter7);
         this.servicesStores.addAll(servicesStores);
         adapter7.notifyDataSetChanged();
+
+
+
+    }
+
+    public void getDetails(){
+
+        adapter1.setOnItemClickListener(new BiggestCoupon_Adapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+
+
+                id =  marketingStores.get(position).getId().toString();
+                Toast.makeText(getContext(),id,Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), Details_biggestCoupon.class);
+                intent.putExtra("id",id);
+
+                startActivity(intent);
+
+
+            }
+        });
+
+
 
 
     }

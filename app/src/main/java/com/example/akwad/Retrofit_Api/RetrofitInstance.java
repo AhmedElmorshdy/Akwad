@@ -41,4 +41,20 @@ public class RetrofitInstance {
 
 
     }
+
+    public static Retrofit getDetail(){
+
+        if (retrofit==null){
+
+            retrofit = new retrofit2.Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+        return retrofit;
+
+
+
+    }
 }

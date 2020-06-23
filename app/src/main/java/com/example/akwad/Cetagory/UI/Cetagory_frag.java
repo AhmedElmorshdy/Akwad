@@ -1,9 +1,11 @@
 package com.example.akwad.Cetagory.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +18,8 @@ import com.example.akwad.Cetagory.Adapters.CetagoryAdapterSlide;
 import com.example.akwad.Cetagory.Adapters.CetagoryItemAdapter;
 import com.example.akwad.Cetagory.Adapters.CetagoryMidBannerAdapter;
 import com.example.akwad.Cetagory.Presenter.CetagoryPresenter;
+import com.example.akwad.Home_frag.Details.UI.Details_biggestCoupon;
+import com.example.akwad.Home_frag.Home.Adapters.Adapter.BiggestCoupon_Adapter;
 import com.example.akwad.ModelView.CetagoryModel.Store;
 import com.example.akwad.ModelView.MidBanner;
 import com.example.akwad.ModelView.Slider;
@@ -26,57 +30,59 @@ import java.util.List;
 
 public class Cetagory_frag extends Fragment implements Cetagory_view {
 
-    RecyclerView recyclerView,recyclerView2,recyclerView3;
+    RecyclerView recyclerView, recyclerView2, recyclerView3;
     CetagoryAdapterSlide adapter;
     CetagoryItemAdapter adapter1;
     CetagoryMidBannerAdapter adapter3;
-    private ArrayList<Slider>sliders;
-    private ArrayList<Store>stores;
-    private ArrayList<MidBanner>midBanners;
-    RecyclerView.LayoutManager layoutManager,layoutManager2,layoutManager3;
+    private ArrayList<Slider> sliders;
+    private ArrayList<Store> stores;
+    private ArrayList<MidBanner> midBanners;
+    RecyclerView.LayoutManager layoutManager, layoutManager2, layoutManager3;
     CetagoryPresenter cetagoryPresenter;
     View view;
     Bundle bundle;
     int i;
+    String id;
+
+    Store store;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         view = inflater.inflate(R.layout.cetagory_frag,container,false);
+        view = inflater.inflate(R.layout.cetagory_frag, container, false);
         setView();
         grtID();
-       setRecyclerView();
-       loadData();
+        setRecyclerView();
+        loadData();
         return view;
     }
 
-    public void setView(){
+    public void setView() {
 
         recyclerView = view.findViewById(R.id.recy_cetagoryBanners);
         recyclerView2 = view.findViewById(R.id.recy_cetagoryitems);
         recyclerView3 = view.findViewById(R.id.recy_cetagory_midBanner);
 
 
-
     }
 
 
-    public void setRecyclerView(){
+    public void setRecyclerView() {
 
-        layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,true);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true);
         recyclerView.setLayoutManager(layoutManager);
 
-        layoutManager2 = new GridLayoutManager(getContext(),3);
+        layoutManager2 = new GridLayoutManager(getContext(), 3);
         recyclerView2.setLayoutManager(layoutManager2);
 
 
-        layoutManager3 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,true);
+        layoutManager3 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true);
         recyclerView3.setLayoutManager(layoutManager3);
 
 
     }
 
-    public void loadData(){
+    public void loadData() {
 
         cetagoryPresenter = new CetagoryPresenter(this);
         cetagoryPresenter.getHome_frag_Data();
@@ -85,19 +91,17 @@ public class Cetagory_frag extends Fragment implements Cetagory_view {
 
     }
 
-    public void grtID(){
+    public void grtID() {
 
-         bundle = this.getArguments();
+        bundle = this.getArguments();
         i = bundle.getInt("id");
     }
 
 
-
-
     @Override
     public void onResponse_CetagorySliders(List<Slider> sliders) {
-        this.sliders =new ArrayList<>();
-        adapter = new CetagoryAdapterSlide(sliders,getContext());
+        this.sliders = new ArrayList<>();
+        adapter = new CetagoryAdapterSlide(sliders, getContext());
         recyclerView.setAdapter(adapter);
         this.sliders.addAll(sliders);
         adapter.notifyDataSetChanged();
@@ -108,18 +112,23 @@ public class Cetagory_frag extends Fragment implements Cetagory_view {
     @Override
     public void onResponse_CetagoryItems(List<Store> stores) {
         this.stores = new ArrayList<>();
-        adapter1 = new CetagoryItemAdapter(stores,getContext());
+        adapter1 = new CetagoryItemAdapter(stores, getContext());
         recyclerView2.setAdapter(adapter1);
         this.stores.addAll(stores);
         adapter1.notifyDataSetChanged();
+
     }
 
     @Override
     public void onResponse_CetagoryMidBanner(List<MidBanner> midBanners) {
         this.midBanners = new ArrayList<>();
-        adapter3 = new CetagoryMidBannerAdapter(midBanners,getContext());
+        adapter3 = new CetagoryMidBannerAdapter(midBanners, getContext());
         recyclerView3.setAdapter(adapter3);
         this.midBanners.addAll(midBanners);
         adapter3.notifyDataSetChanged();
     }
+
+
+
+
 }

@@ -1,6 +1,6 @@
-package com.example.akwad.Home_frag.Presenter;
+package com.example.akwad.Home_frag.Home.Adapters.Presenter;
 
-import com.example.akwad.Home_frag.UI.Home_View;
+import com.example.akwad.Home_frag.Home.Adapters.UI.Home_View;
 import com.example.akwad.ModelView.Home_frag.Homefrag_Response;
 import com.example.akwad.Retrofit_Api.GetRetrofit;
 import com.example.akwad.Retrofit_Api.RetrofitInstance;

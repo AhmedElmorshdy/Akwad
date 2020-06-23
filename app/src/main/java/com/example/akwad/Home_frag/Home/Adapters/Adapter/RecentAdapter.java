@@ -1,4 +1,4 @@
-package com.example.akwad.Home_frag.Adapters;
+package com.example.akwad.Home_frag.Home.Adapters.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

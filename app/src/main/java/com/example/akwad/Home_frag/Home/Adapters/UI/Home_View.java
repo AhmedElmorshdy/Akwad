@@ -1,4 +1,4 @@
-package com.example.akwad.Home_frag.UI;
+package com.example.akwad.Home_frag.Home.Adapters.UI;
 
 import com.example.akwad.ModelView.Coupon;
 import com.example.akwad.ModelView.MarketingStore;

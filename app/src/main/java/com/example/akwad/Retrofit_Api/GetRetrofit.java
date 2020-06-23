@@ -1,6 +1,7 @@
 package com.example.akwad.Retrofit_Api;
 
 import com.example.akwad.ModelView.CetagoryModel.CetagoryResponse;
+import com.example.akwad.ModelView.DetailModel.DetailResponse;
 import com.example.akwad.ModelView.Home_frag.Homefrag_Response;
 
 import retrofit2.Call;
@@ -18,4 +19,8 @@ public interface GetRetrofit {
 
     @GET("categories/{id}")
     Call<CetagoryResponse>getCetagory(@Header("X-localization") String location, @Path("id")int id , @Query("page") Integer page);
+
+    @GET("store/{id}")
+    Call<DetailResponse> getDetail(@Header("X-localization") String location, @Path("id")int id , @Query("page") Integer page
+                           , @Query("country_id") Integer page1        );
 }

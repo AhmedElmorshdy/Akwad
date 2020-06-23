@@ -1,7 +1,7 @@
 package com.example.akwad.Cetagory.Presenter;
 
 import com.example.akwad.Cetagory.UI.Cetagory_view;
-import com.example.akwad.Home_frag.Presenter.Home_Presenter;
+import com.example.akwad.Home_frag.Home.Adapters.Presenter.Home_Presenter;
 import com.example.akwad.ModelView.CetagoryModel.CetagoryResponse;
 import com.example.akwad.ModelView.Home_frag.Homefrag_Response;
 import com.example.akwad.Retrofit_Api.GetRetrofit;

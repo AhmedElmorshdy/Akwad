@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Akwad</string>
+    <string name="HighestDiscount">الاكثر تخفيضا</string>
+    <string name="mostUsed">الاكثر طلباا</string>
+    <string name="RecentCodes">الاكثر استخداما</string>
+    <string name="RandomStores">كوبونات عشوائية</string>
+    <string name="Shopping">التسوق</string>
+    <string name="Travel">سفر</string>
+    <string name="Services">حدمات</string>
+</resources>

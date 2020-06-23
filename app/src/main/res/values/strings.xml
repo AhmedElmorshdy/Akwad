@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Akwad</string>
-
+    <string name="HighestDiscount">Highest Didcount</string>
+    <string name="mostUsed">Most Used</string>
+    <string name="RecentCodes">Recent Codes</string>
+    <string name="RandomStores">Random Stores</string>
+    <string name="Shopping">Shopping</string>
+    <string name="Travel">Travel</string>
+    <string name="Services">Services</string>
 </resources>

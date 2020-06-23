@@ -1,4 +1,4 @@
-package com.example.akwad.Home_frag.Adapters;
+package com.example.akwad.Cetagory.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,11 +15,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.viewHolder> {
-    List <MidBanner>midBanners;
+public class CetagoryMidBannerAdapter extends RecyclerView.Adapter<CetagoryMidBannerAdapter.viewHolder> {
+    List<MidBanner>midBanners;
     Context context;
 
-    public BannerAdapter(List<MidBanner> midBanners, Context context) {
+    public CetagoryMidBannerAdapter(List<MidBanner> midBanners, Context context) {
         this.midBanners = midBanners;
         this.context = context;
     }
@@ -27,17 +27,15 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.viewHolder
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.cetagorysliders,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.cetagorymidbanner,parent,false);
         return new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-
-        MidBanner current = midBanners.get(position);
-        String  image = current.getImage();
+      MidBanner current = midBanners.get(position);
+      String image = current.getImage();
         Picasso.get().load(image).centerCrop().fit().into(holder.imageView);
-
     }
 
     @Override
@@ -46,13 +44,11 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.viewHolder
     }
 
     public static class viewHolder extends RecyclerView.ViewHolder{
-
         ImageView imageView;
-
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.cetagory_Banner);
+            imageView = itemView.findViewById(R.id.cetagory_midbanneritem);
         }
     }
 }

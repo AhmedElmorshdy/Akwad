@@ -1,4 +1,4 @@
-package com.example.akwad.Home_frag.Adapters;
+package com.example.akwad.Cetagory.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,18 +9,19 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.akwad.ModelView.MidBanner;
+import com.example.akwad.ModelView.Slider;
 import com.example.akwad.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.viewHolder> {
-    List <MidBanner>midBanners;
+public class CetagoryAdapterSlide extends RecyclerView.Adapter<CetagoryAdapterSlide.viewHolder> {
+
+    List<Slider>sliders;
     Context context;
 
-    public BannerAdapter(List<MidBanner> midBanners, Context context) {
-        this.midBanners = midBanners;
+    public CetagoryAdapterSlide(List<Slider> sliders, Context context) {
+        this.sliders = sliders;
         this.context = context;
     }
 
@@ -33,16 +34,15 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.viewHolder
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-
-        MidBanner current = midBanners.get(position);
-        String  image = current.getImage();
+        Slider current = sliders.get(position);
+        String image = current.getImage();
         Picasso.get().load(image).centerCrop().fit().into(holder.imageView);
 
     }
 
     @Override
     public int getItemCount() {
-        return midBanners.size();
+        return sliders.size();
     }
 
     public static class viewHolder extends RecyclerView.ViewHolder{

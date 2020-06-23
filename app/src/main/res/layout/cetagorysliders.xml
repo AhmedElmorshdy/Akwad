@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/image_Banner"
+        android:id="@+id/cetagory_Banner"
         android:layout_width="350dp"
         android:src="@drawable/akwad1"
         android:layout_height="193dp"

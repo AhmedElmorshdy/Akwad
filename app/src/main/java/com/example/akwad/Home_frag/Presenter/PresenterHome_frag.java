@@ -22,7 +22,7 @@ public class PresenterHome_frag implements Home_Presenter {
     public void getHome_frag_Data() {
 
         GetRetrofit list  = RetrofitInstance.getSliders().create(GetRetrofit.class);
-        Call<Homefrag_Response>call = list.getHome("ar",1);
+        Call<Homefrag_Response>call = list.getHome("en",1);
         call.enqueue(new Callback<Homefrag_Response>() {
             @Override
             public void onResponse(Call<Homefrag_Response> call, Response<Homefrag_Response> response) {

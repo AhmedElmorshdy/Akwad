@@ -53,12 +53,24 @@ public class Home_frag extends Fragment implements Home_View {
      private ArrayList<MarketingStore>marketingStores;
      private ArrayList<ServicesStore>servicesStores;
      PresenterHome_frag presenterHome_frag;
+     View view;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_frag,container,false);
+         view = inflater.inflate(R.layout.home_frag,container,false);
+
+
+         setView();
+        set_Recycler();
+         loadData();
+        return view;
+    }
+
+    public void setView(){
+
+
         recyclerView = view.findViewById(R.id.recy_sliders);
         recyclerView1 = view.findViewById(R.id.recy_biggestCoupon);
         recyclerView2 = view.findViewById(R.id.recy_most_clicked);
@@ -70,9 +82,6 @@ public class Home_frag extends Fragment implements Home_View {
 
 
 
-        set_Recycler();
-         loadData();
-        return view;
     }
 
     private void set_Recycler() {

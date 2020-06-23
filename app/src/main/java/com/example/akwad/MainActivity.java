@@ -14,19 +14,20 @@ import android.widget.Toast;
 
 import com.example.akwad.Home_frag.UI.Home_frag;
 import com.example.akwad.More_frag.More_frag;
-import com.example.akwad.Services_frag.Services_frag;
-import com.example.akwad.Shopping_frag.Shopping_frag;
-import com.example.akwad.Travel_frag.Travel_frag;
+import com.example.akwad.Cetagory.UI.Cetagory_frag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+        Bundle bundle;
     ImageView imageView;
      FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bot);
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
 
-
+         bundle = new Bundle();
         fragmentManager = getSupportFragmentManager();
 
 
@@ -73,21 +74,42 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
             default:
                 fragment = new Home_frag();
+
                 break;
 
             case R.id.shopping:
-                fragment = new Shopping_frag();
+                fragment = new Cetagory_frag();
+                 bundle = new Bundle();
+                bundle.putInt("id",1);
+                fragment.setArguments(bundle);
+                Toast.makeText(this,"Hello",Toast.LENGTH_LONG).show();
+
+
+               
                 break;
 
             case R.id.more:
                 fragment = new More_frag();
                 break;
             case R.id.travel:
-                fragment = new Travel_frag();
+               fragment = new Cetagory_frag();
+              Bundle bundle = new Bundle();
+               bundle.putInt("id",2);
+               fragment.setArguments(bundle);
+
+
+
+
                 break;
 
             case R.id.services:
-                fragment = new Services_frag();
+                fragment = new Cetagory_frag();
+                bundle = new Bundle();
+                bundle.putInt("id",3);
+                fragment.setArguments(bundle);
+
+
+
                 break;
 
 
@@ -105,4 +127,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         startActivity(intent);
 
     }
+
+
 }

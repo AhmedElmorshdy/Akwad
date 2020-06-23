@@ -1,5 +1,6 @@
 package com.example.akwad.ModelView.DetailModel;
 
+import com.example.akwad.ModelView.Coupon;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -13,7 +14,7 @@ public class Data {
     private StoreData storeData;
     @SerializedName("coupons")
     @Expose
-    private List<Object> coupons = null;
+    private List<Coupon> coupons = null;
     @SerializedName("paginate")
     @Expose
     private Paginate paginate;
@@ -26,11 +27,11 @@ public class Data {
         this.storeData = storeData;
     }
 
-    public List<Object> getCoupons() {
+    public List<Coupon> getCoupons() {
         return coupons;
     }
 
-    public void setCoupons(List<Object> coupons) {
+    public void setCoupons(List<Coupon> coupons) {
         this.coupons = coupons;
     }
 

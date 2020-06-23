@@ -26,29 +26,29 @@ public class DetailPresenter implements Detail_Presenter{
     @Override
     public void getDetails(int i) {
 
-    GetRetrofit list = RetrofitInstance.getDetail().create(GetRetrofit.class);
-    Call<DetailResponse>call = list.getDetail("en",i,1,2);
-    call.enqueue(new Callback<DetailResponse>() {
-        @Override
-        public void onResponse(Call<DetailResponse> call, Response<DetailResponse> response) {
-            if (response.isSuccessful()){
-                if (response.body().getValue()){
+        GetRetrofit lisy = RetrofitInstance.getDetail().create(GetRetrofit.class);
+        Call<DetailResponse>call = lisy.getDetail("en",i,1,2);
+        call.enqueue(new Callback<DetailResponse>() {
+            @Override
+            public void onResponse(Call<DetailResponse> call, Response<DetailResponse> response) {
+                if (response.isSuccessful()){
 
-                    view.onResponsebiggest(response.body().getData().getStoreData());
 
+
+                    if (response.body().getValue()){
+                        view.onResponsebiggest(response.body().getData().getStoreData());
+
+                    }
                 }
+
+
             }
 
-        }
+            @Override
+            public void onFailure(Call<DetailResponse> call, Throwable t) {
 
-        @Override
-        public void onFailure(Call<DetailResponse> call, Throwable t) {
-
-
-
-        }
-    });
-
+            }
+        });
 
        
     }

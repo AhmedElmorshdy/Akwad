@@ -60,4 +60,10 @@ public class Details_biggestCoupon extends AppCompatActivity implements DetailVi
 
 
     }
+
+    @Override
+    public void fail() {
+        Toast.makeText(this,"fail",Toast.LENGTH_LONG
+        ).show();
+    }
 }

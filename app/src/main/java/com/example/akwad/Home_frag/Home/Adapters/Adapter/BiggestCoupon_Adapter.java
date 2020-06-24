@@ -47,11 +47,16 @@ public class BiggestCoupon_Adapter extends RecyclerView.Adapter<BiggestCoupon_Ad
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull viewHolder holder, final int position) {
         Coupon current = biggestCoupons.get(position);
         String image = current.getImage();
         Picasso.get().load(image).centerCrop().centerCrop().fit().into(holder.imageView);
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mlistener.OnItemClick(position);
+            }
+        });
         holder.textView.setText(current.getValue());
 
 

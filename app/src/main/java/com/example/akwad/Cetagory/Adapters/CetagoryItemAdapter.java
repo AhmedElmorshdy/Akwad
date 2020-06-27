@@ -51,7 +51,7 @@ public class CetagoryItemAdapter extends RecyclerView.Adapter<CetagoryItemAdapte
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.cetagoryitems,parent,false);
-        return new viewHolder(view);
+        return new viewHolder(view,mlistener);
     }
 
     @Override
@@ -74,11 +74,26 @@ public class CetagoryItemAdapter extends RecyclerView.Adapter<CetagoryItemAdapte
         ImageView imageView;
         TextView textView;
 
-        public viewHolder(@NonNull View itemView) {
+        public viewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.cetagory_storeImage);
             textView = itemView.findViewById(R.id.cetagory_storeName);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (listener !=null){
+                        int position = getAdapterPosition();
+                        if (position !=RecyclerView.NO_POSITION){
+                            listener.OnItemClick(position);
+                        }
+                    }
+
+                }
+            });
+
 
 
         }

@@ -23,4 +23,8 @@ public interface GetRetrofit {
     @GET("store/{id}")
     Call<DetailResponse> getDetail(@Header("X-localization") String location, @Path("id")int id , @Query("page") Integer page
                            , @Query("country_id") Integer page1        );
+
+    @GET("search")
+    Call<Homefrag_Response>getresult(@Header("X-localization") String localization,
+                                     @Query("store_name") String queryword);
 }

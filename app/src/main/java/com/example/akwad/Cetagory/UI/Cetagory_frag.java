@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,9 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.akwad.Cetagory.Adapters.CetagoryAdapterSlide;
 import com.example.akwad.Cetagory.Adapters.CetagoryItemAdapter;
 import com.example.akwad.Cetagory.Adapters.CetagoryMidBannerAdapter;
+
 import com.example.akwad.Cetagory.Presenter.CetagoryPresenter;
-import com.example.akwad.Home_frag.Details.UI.Details_biggestCoupon;
-import com.example.akwad.Home_frag.Home.Adapters.Adapter.BiggestCoupon_Adapter;
+
+import com.example.akwad.MainActivity2;
 import com.example.akwad.ModelView.CetagoryModel.Store;
 import com.example.akwad.ModelView.MidBanner;
 import com.example.akwad.ModelView.Slider;
@@ -43,6 +43,7 @@ public class Cetagory_frag extends Fragment implements Cetagory_view {
     Bundle bundle;
     int i;
     String id;
+    int id1;
 
     Store store;
 
@@ -116,6 +117,9 @@ public class Cetagory_frag extends Fragment implements Cetagory_view {
         recyclerView2.setAdapter(adapter1);
         this.stores.addAll(stores);
         adapter1.notifyDataSetChanged();
+        getDetails();
+
+
 
     }
 
@@ -126,6 +130,24 @@ public class Cetagory_frag extends Fragment implements Cetagory_view {
         recyclerView3.setAdapter(adapter3);
         this.midBanners.addAll(midBanners);
         adapter3.notifyDataSetChanged();
+    }
+
+    public void getDetails(){
+
+        adapter1.setOnItemClickListener(new CetagoryItemAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+
+
+
+                Intent intent = new Intent(getContext(), MainActivity2.class);
+
+                intent.putExtra("id1",stores.get(position).getId());
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 

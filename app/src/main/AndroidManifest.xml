@@ -10,9 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Home_frag.Details.UI.Details_biggestCoupon"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".MainActivity2"></activity>
+        <activity android:name=".Cetagory.Details.Details_cetagory" />
+        <activity android:name=".Detail_Cetagory" />
+        <activity android:name=".Home_frag.Details.UI.Details_biggestCoupon" />
         <activity android:name=".Search" />
         <activity
             android:name=".SplashScreen"

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.akwad.Home_frag.Home.Adapters.UI.Home_frag;
 import com.example.akwad.More_frag.More_frag;
 import com.example.akwad.Cetagory.UI.Cetagory_frag;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     public void onClick(View view) {
 
-        Intent intent = new Intent(this,Search.class);
+        Intent intent = new Intent(this, Search.class);
         Toast.makeText(this,"hello",Toast.LENGTH_LONG).show();
         startActivity(intent);
 

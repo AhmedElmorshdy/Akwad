@@ -7,6 +7,7 @@ import com.example.akwad.ModelView.Home_frag.Homefrag_Response;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -24,7 +25,10 @@ public interface GetRetrofit {
     Call<DetailResponse> getDetail(@Header("X-localization") String location, @Path("id")int id , @Query("page") Integer page
                            , @Query("country_id") Integer page1        );
 
-    @GET("search")
-    Call<Homefrag_Response>getresult(@Header("X-localization") String localization,
-                                     @Query("store_name") String queryword);
+  /*  @POST("search")
+    Call<SearchResponse> SEARCH_RESPONSE_CALL(
+            @Header("X-localization") String localization,
+            @Query("name") String queryWord,
+            @Query("country_id") int id
+    );*/
 }

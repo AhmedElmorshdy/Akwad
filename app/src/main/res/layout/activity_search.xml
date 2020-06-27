@@ -23,6 +23,7 @@
         android:hint="searchresult"
         android:imeOptions="actionSearch"
         android:id="@+id/searchresult"
+        android:inputType="text"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -24,6 +24,8 @@ public class Searchpresenter implements Search_Presenter{
             @Override
             public void onResponse(Call<Homefrag_Response> call, Response<Homefrag_Response> response) {
                 view.onResponseResult(response.body().getData().getRandomCoupons());
+                view.onResponseResult(response.body().getData().getRecentCoupons());
+                view.onResponseResult(response.body().getData().getMostClicked());
 
             }
 

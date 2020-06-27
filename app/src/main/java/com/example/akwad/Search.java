@@ -45,7 +45,7 @@ public class Search extends AppCompatActivity implements com.example.akwad.searc
 
                 if (actionId== EditorInfo.IME_ACTION_SEARCH){
 
-                    searchpresenter.getresult(editText.toString());
+                    searchpresenter.getresult(editText.getText().toString());
 
                 }
                 return false;

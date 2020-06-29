@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.akwad.ModelView.CetagoryModel.Store;
 import com.example.akwad.ModelView.Coupon;
+
 import com.example.akwad.R;
 import com.squareup.picasso.Picasso;
 
@@ -18,11 +20,11 @@ import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder> {
 
-    List<Coupon>coupons;
+    List<Store>stores;
     Context context;
 
-    public SearchAdapter(List<Coupon> coupons, Context context) {
-        this.coupons = coupons;
+    public SearchAdapter(List<Store> stores, Context context) {
+        this.stores = stores;
         this.context = context;
     }
 
@@ -35,17 +37,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        Coupon current = coupons.get(position);
+        Store current = stores.get(position);
         String image = current.getImage();
         Picasso.get().load(image).centerCrop().fit().into(holder.imageView);
 
-        holder.textView.setText(current.getStoreName());
+        holder.textView.setText(current.getName());
 
     }
 
     @Override
     public int getItemCount() {
-        return coupons.size();
+        return stores.size() ;
     }
 
     public static class viewHolder extends RecyclerView.ViewHolder{

@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.akwad.MainActivity;
+import com.example.akwad.ModelView.CetagoryModel.Store;
 import com.example.akwad.ModelView.Coupon;
+
 import com.example.akwad.R;
 import com.example.akwad.search.Adapters.SearchAdapter;
 import com.example.akwad.search.presenter.Searchpresenter;
@@ -26,7 +28,7 @@ public class Search extends AppCompatActivity implements com.example.akwad.searc
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     SearchAdapter adapter;
-    private ArrayList<Coupon>coupons;
+    private ArrayList<Store>stores;
     EditText editText;
     Searchpresenter searchpresenter;
 
@@ -58,7 +60,6 @@ public class Search extends AppCompatActivity implements com.example.akwad.searc
     public  void iniitview(){
 
         editText = findViewById(R.id.searchresult);
-
         recyclerView = findViewById(R.id.recy_search);
 
     }
@@ -79,12 +80,12 @@ public class Search extends AppCompatActivity implements com.example.akwad.searc
     }
 
     @Override
-    public void onResponseResult(List<Coupon> coupons) {
+    public void onResponseResult(List<Store> stores) {
 
-        this.coupons = new ArrayList<>();
-        adapter = new SearchAdapter(coupons,this);
+        this.stores = new ArrayList<>();
+        adapter = new SearchAdapter(stores,this);
         recyclerView.setAdapter(adapter);
-        this.coupons.addAll(coupons);
+        this.stores.addAll(stores);
         adapter.notifyDataSetChanged();
 
     }

@@ -1,4 +1,4 @@
-package com.example.akwad.Cetagory.Adapters;
+package com.example.akwad.Home_fragment.Home.Adapters.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,31 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.akwad.Home_fragment.Home.Adapters.Adapter.BiggestCoupon_Adapter;
-import com.example.akwad.ModelView.CetagoryModel.Store;
+import com.example.akwad.ModelView.Coupon;
 import com.example.akwad.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class CetagoryItemAdapter extends RecyclerView.Adapter<CetagoryItemAdapter.viewHolder> {
+public class BiggestCoupon_Adapter extends RecyclerView.Adapter<BiggestCoupon_Adapter.viewHolder> {
 
-    List<Store>stores;
+    List<Coupon>biggestCoupons;
     Context context;
-
-
     private OnItemClickListener mlistener;
-
-    public void setOnItemClickListener(BiggestCoupon_Adapter.OnItemClickListener id) {
-
-
-    }
-
 
     public interface OnItemClickListener{
 
         void OnItemClick(int position);
     }
+
 
     public void setOnItemClickListener(OnItemClickListener listener){
 
@@ -42,43 +34,50 @@ public class CetagoryItemAdapter extends RecyclerView.Adapter<CetagoryItemAdapte
     }
 
 
-    public CetagoryItemAdapter(List<Store> stores, Context context) {
-        this.stores = stores;
+    public BiggestCoupon_Adapter(List<Coupon> biggestCoupons, Context context) {
+        this.biggestCoupons = biggestCoupons;
         this.context = context;
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.cetagoryitems,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.bigges_coupon,parent,false);
         return new viewHolder(view,mlistener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-
-        Store current = stores.get(position);
+    public void onBindViewHolder(@NonNull viewHolder holder, final int position) {
+        Coupon current = biggestCoupons.get(position);
         String image = current.getImage();
-        Picasso.get().load(image).centerCrop().fit().into(holder.imageView);
+        Picasso.get().load(image).centerCrop().centerCrop().fit().into(holder.imageView);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mlistener.OnItemClick(position);
+            }
+        });
+        holder.textView.setText(current.getValue());
 
-        holder.textView.setText(current.getName());
 
     }
 
     @Override
     public int getItemCount() {
-        return stores.size();
+        return biggestCoupons.size();
     }
 
     public static class viewHolder extends RecyclerView.ViewHolder{
+
         ImageView imageView;
         TextView textView;
 
         public viewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.cetagory_storeImage);
-            textView = itemView.findViewById(R.id.cetagory_storeName);
+            imageView = itemView.findViewById(R.id.biggest_couponImage);
+            textView = itemView.findViewById(R.id.biggest_couponName);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -93,8 +92,6 @@ public class CetagoryItemAdapter extends RecyclerView.Adapter<CetagoryItemAdapte
 
                 }
             });
-
-
 
         }
     }

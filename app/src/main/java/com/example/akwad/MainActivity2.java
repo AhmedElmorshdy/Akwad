@@ -45,9 +45,10 @@ public class MainActivity2 extends AppCompatActivity implements View_Cetagory {
 
     }
 
-    public void initview(){
+    public void initview() {
         imageView = findViewById(R.id.profile_image);
-        textView = findViewById(R.id.namestore1);textView1 = findViewById(R.id.textdescription1);
+        textView = findViewById(R.id.namestore1);
+        textView1 = findViewById(R.id.textdescription1);
         recyclerView = findViewById(R.id.recycler);
 
     }

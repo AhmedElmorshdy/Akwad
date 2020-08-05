@@ -3,6 +3,7 @@ package com.example.akwad.Retrofit_Api;
 import com.example.akwad.ModelView.CetagoryModel.CetagoryResponse;
 import com.example.akwad.ModelView.DetailModel.DetailResponse;
 import com.example.akwad.ModelView.Home_frag.Homefrag_Response;
+import com.example.akwad.ModelView.Notifications.NotificationResponse;
 import com.example.akwad.ModelView.Search.SearchResponse;
 
 import retrofit2.Call;
@@ -32,4 +33,11 @@ public interface GetRetrofit {
             @Query("name") String queryWord,
             @Query("country_id") int id
     );
+
+    @GET("notifications")
+    Call<NotificationResponse> gwtNotification(@Header("X-localization") String localization,
+                                       @Query("country_id") Integer page);
+
+
+
 }

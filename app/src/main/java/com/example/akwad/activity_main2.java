@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity implements View_Cetagory {
+public class activity_main2 extends AppCompatActivity implements View_Cetagory {
 
     RecyclerView recyclerView;
     AdapterDetailItems adapterDetailItems;

@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".NotificationUI"></activity>
-        <activity android:name=".MainActivity2" />
+        <activity android:name=".activity_main2" />
         <activity android:name=".Cetagory.Details.Details_cetagory" />
         <activity android:name=".Detail_Cetagory" />
         <activity android:name=".Home_fragment.Details.UI.Details_biggestCoupon" />

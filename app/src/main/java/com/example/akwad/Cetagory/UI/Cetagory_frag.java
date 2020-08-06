@@ -19,7 +19,7 @@ import com.example.akwad.Cetagory.Adapters.CetagoryMidBannerAdapter;
 
 import com.example.akwad.Cetagory.Presenter.CetagoryPresenter;
 
-import com.example.akwad.MainActivity2;
+import com.example.akwad.activity_main2;
 import com.example.akwad.ModelView.CetagoryModel.Store;
 import com.example.akwad.ModelView.MidBanner;
 import com.example.akwad.ModelView.Slider;
@@ -140,7 +140,7 @@ public class Cetagory_frag extends Fragment implements Cetagory_view {
 
 
 
-                Intent intent = new Intent(getContext(), MainActivity2.class);
+                Intent intent = new Intent(getContext(), activity_main2.class);
 
                 intent.putExtra("id1",stores.get(position).getId());
                 startActivity(intent);
